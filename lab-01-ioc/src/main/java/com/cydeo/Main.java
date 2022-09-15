@@ -8,7 +8,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class Main {
     public static void main(String[] args) {
+
         ApplicationContext container = new AnnotationConfigApplicationContext(Config.class);
+
 
         Saving saving = container.getBean(Saving.class);
         Current current = container.getBean(Current.class);

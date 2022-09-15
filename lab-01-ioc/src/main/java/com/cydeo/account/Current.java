@@ -13,6 +13,7 @@ public class Current {
     private BigDecimal amount;
     private UUID accountId;
 
+
     public void initialize(){
         System.out.println("current account " + "currency: "+ currency.getCode() + "amount: " + amount + "accountId" + accountId);
     }
