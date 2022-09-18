@@ -21,11 +21,16 @@ public class Config {
     return s;
 }
 @Bean
-    Current current(){
+Currency currency(){
+    return new Currency("123","Euro");
+}
+
+@Bean
+    Current current(Currency currency){
     Current c = new Current();
     c.setAccountId(UUID.randomUUID());
     c.setAmount(new BigDecimal("100"));
-    c.setCurrency(new Currency("123","Euro"));
+    c.setCurrency(currency);//parameterized wiring or could be currency() as direct wiring without parameter
     return c;
 }
 

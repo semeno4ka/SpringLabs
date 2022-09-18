@@ -11,4 +11,5 @@ import java.util.Map;
 public class Cart {
     private Map<Product, Integer> productMap;
     private BigDecimal cartTotalAmount;
+
 }

@@ -11,4 +11,5 @@ public class Product {
     private int quantity;
     private int remainingQuantity;
     private BigDecimal price;
+
 }
