@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/product")
 public class ProductController {
 
 
@@ -25,23 +24,21 @@ public class ProductController {
         this.cartService = cartService;
     }
 
-    @GetMapping("/create-product")
+    @GetMapping("/list")
+    public String retrieveList(Model model){
+    model.addAttribute("productList",productService.listProduct());
+    return "/product/list";
+}
+    @GetMapping("/create-form")
     public String createProduct(Model model){
-    model.addAttribute("product", new Product());
-    return "/product/create-product";
+        model.addAttribute("product",new Product());
+        return "product/create-product";
 }
-
-   @PostMapping("/create-product")
-    public String addProduct(@ModelAttribute("product") Product product){
-       productService.productCreate(product);
-        return "redirect:/product/list";
-}
-
-   @GetMapping("/list")
-    public String productList(Model model){
-        model.addAttribute("list", productService.listProduct());
-        return "/product/list";
-}
+ @PostMapping("/create-product")
+    public String postProduct(@ModelAttribute Product product){
+     productService.productCreate(product);
+        return "redirect:/list";
+ }
 
 
 
