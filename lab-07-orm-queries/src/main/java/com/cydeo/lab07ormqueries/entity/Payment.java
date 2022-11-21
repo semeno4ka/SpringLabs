@@ -1,6 +1,7 @@
-package com.cydeo.lab06orm.entity;
+package com.cydeo.lab07ormqueries.entity;
 
-import com.cydeo.lab06orm.enums.DiscountType;
+
+import com.cydeo.lab07ormqueries.enums.PaymentMethod;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,11 +15,9 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Discount extends BaseEntity{
+public class Payment extends BaseEntity {
 
-    private BigDecimal discount;
+    private BigDecimal paidPrice;
     @Enumerated(EnumType.STRING)
-    private DiscountType discountType;
-    private String name;
-
+    private PaymentMethod paymentMethod;
 }
