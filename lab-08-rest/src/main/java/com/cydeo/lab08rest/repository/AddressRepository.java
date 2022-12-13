@@ -27,4 +27,6 @@ public interface AddressRepository extends JpaRepository<Address,String> {
     //Write a JPQL query to get all address with a specific customerId
     @Query("SELECT a FROM Address a WHERE a.customer.id = ?1")
     List<Address> retrieveByCustomerId(Long id);
+
+    List<Address> findAllByCustomerIdAndName(Long id, String name);
 }
