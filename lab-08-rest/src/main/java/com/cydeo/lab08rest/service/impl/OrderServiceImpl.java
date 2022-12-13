@@ -43,8 +43,10 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderDTO updateOrder(OrderDTO orderDTO) {
+    public OrderDTO updateOrder(OrderDTO orderDTO) {// why do not we set order with existing order id when update?
+        // if we didn't show the data as output of Json than no need to return OrderDTO, correct?
         Order order=mapperUtil.convert(orderDTO,new Order());
+        //Entity           //Convert  to Entity from  DTO
         order.setCustomer(mapperUtil.convert(customerService.findById(orderDTO.getCustomerId()), new Customer()));
         order.setPayment(mapperUtil.convert(paymentService.findById(orderDTO.getPaymentId()), new Payment()));
         order.setCart(mapperUtil.convert(cartService.findById(orderDTO.getCartId()),new Cart()));
